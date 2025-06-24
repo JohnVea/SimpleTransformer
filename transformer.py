@@ -99,3 +99,8 @@ transformer = Transformer(embedding_matrix)
 output = transformer.forward(lowwjohn)  # Forward pass through the transformer
 print("Output Vector Shape: ", output.shape)
 print("Output Vector: \n", output)
+decoded_output = []
+for i in range(len(output)):
+    decoded_output.append(tokenizer.decode([np.argmax(output[i])]))  # Decode each output vector back to text
+
+print("\nDecoded Output: ", decoded_output)  # Print the decoded output vectors
